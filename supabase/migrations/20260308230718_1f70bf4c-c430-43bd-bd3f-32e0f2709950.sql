@@ -1,0 +1,1 @@
+ALTER TABLE public.leads ADD COLUMN IF NOT EXISTS sector text, ADD COLUMN IF NOT EXISTS employees_range text, ADD COLUMN IF NOT EXISTS certification_interest boolean DEFAULT false, ADD COLUMN IF NOT EXISTS num_consultants text, ADD COLUMN IF NOT EXISTS num_target_clients text;

@@ -1,0 +1,1 @@
+ALTER TABLE public.export_log ADD COLUMN export_formats jsonb NOT NULL DEFAULT '[]'::jsonb;
