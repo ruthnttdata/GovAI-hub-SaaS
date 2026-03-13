@@ -1,16 +1,1 @@
-project_id = "pydjumokzgrxtqcvizwx"
-
-[functions.bootstrap-admin]
-verify_jwt = false
-
-[functions.generate-evidence-pack]
-verify_jwt = false
-
-[functions.create-checkout]
-verify_jwt = false
-
-[functions.create-portal-session]
-verify_jwt = false
-
-[functions.stripe-webhook]
-verify_jwt = false
+project_id = "ocffxutqzdwjpgcumhsr"
