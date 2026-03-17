@@ -52,15 +52,16 @@ Deno.serve(async (req) => {
 
   let event: Stripe.Event;
 
-  if (webhookSecret && sig) {
-    try {
-      event = await stripe.webhooks.constructEventAsync(body, sig, webhookSecret);
-    } catch (err) {
-      console.error("Webhook signature verification failed:", err);
-      return new Response(`Webhook Error: ${err}`, { status: 400 });
-    }
-  } else {
-    event = JSON.parse(body) as Stripe.Event;
+  if (!webhookSecret || !sig) {
+    console.error("[STRIPE-WEBHOOK] Missing webhook secret or signature");
+    return new Response(JSON.stringify({ error: "Webhook not configured" }), { status: 500 });
+  }
+
+  try {
+    event = await stripe.webhooks.constructEventAsync(body, sig, webhookSecret);
+  } catch (err) {
+    console.error("[STRIPE-WEBHOOK] Signature verification failed:", err);
+    return new Response(JSON.stringify({ error: "Invalid signature" }), { status: 400 });
   }
 
   const admin = createClient(
@@ -206,7 +207,7 @@ Deno.serve(async (req) => {
     }
   } catch (err) {
     console.error(`[STRIPE-WEBHOOK] Error processing ${event.type}:`, err);
-    return new Response(JSON.stringify({ error: String(err) }), { status: 500 });
+    return new Response(JSON.stringify({ error: "Internal server error" }), { status: 500 });
   }
 
   return new Response(JSON.stringify({ received: true }), {
