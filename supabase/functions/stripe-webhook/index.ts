@@ -207,7 +207,7 @@ Deno.serve(async (req) => {
     }
   } catch (err) {
     console.error(`[STRIPE-WEBHOOK] Error processing ${event.type}:`, err);
-    return new Response(JSON.stringify({ error: String(err) }), { status: 500 });
+    return new Response(JSON.stringify({ error: "Internal server error" }), { status: 500 });
   }
 
   return new Response(JSON.stringify({ received: true }), {
