@@ -460,68 +460,110 @@ export type Database = {
         Row: {
           advanced_mode_enabled: boolean | null
           aims_scope: string | null
+          billing_address_line1: string | null
+          billing_address_line2: string | null
+          billing_city: string | null
+          billing_country: string | null
+          billing_postcode: string | null
+          billing_region: string | null
+          compliance_contact_email: string | null
+          compliance_contact_name: string | null
           country: string | null
           created_at: string
           critical_overdue_days: number | null
           employee_count: number | null
+          employee_range: string | null
           export_blocking_enabled: boolean | null
           export_blocking_scope: string | null
           id: string
+          iso_readiness_pct: number | null
+          legal_company_name: string | null
           name: string
           partner_id: string | null
           review_frequency_days: number | null
           review_mode: string | null
           sector: string | null
+          tax_id: string | null
+          trade_name: string | null
           trial_ends_at: string | null
           trial_exports_used: number | null
           trial_started_at: string | null
           updated_at: string
           vertical_template: string | null
           warning_before_days: number | null
+          website: string | null
         }
         Insert: {
           advanced_mode_enabled?: boolean | null
           aims_scope?: string | null
+          billing_address_line1?: string | null
+          billing_address_line2?: string | null
+          billing_city?: string | null
+          billing_country?: string | null
+          billing_postcode?: string | null
+          billing_region?: string | null
+          compliance_contact_email?: string | null
+          compliance_contact_name?: string | null
           country?: string | null
           created_at?: string
           critical_overdue_days?: number | null
           employee_count?: number | null
+          employee_range?: string | null
           export_blocking_enabled?: boolean | null
           export_blocking_scope?: string | null
           id?: string
+          iso_readiness_pct?: number | null
+          legal_company_name?: string | null
           name: string
           partner_id?: string | null
           review_frequency_days?: number | null
           review_mode?: string | null
           sector?: string | null
+          tax_id?: string | null
+          trade_name?: string | null
           trial_ends_at?: string | null
           trial_exports_used?: number | null
           trial_started_at?: string | null
           updated_at?: string
           vertical_template?: string | null
           warning_before_days?: number | null
+          website?: string | null
         }
         Update: {
           advanced_mode_enabled?: boolean | null
           aims_scope?: string | null
+          billing_address_line1?: string | null
+          billing_address_line2?: string | null
+          billing_city?: string | null
+          billing_country?: string | null
+          billing_postcode?: string | null
+          billing_region?: string | null
+          compliance_contact_email?: string | null
+          compliance_contact_name?: string | null
           country?: string | null
           created_at?: string
           critical_overdue_days?: number | null
           employee_count?: number | null
+          employee_range?: string | null
           export_blocking_enabled?: boolean | null
           export_blocking_scope?: string | null
           id?: string
+          iso_readiness_pct?: number | null
+          legal_company_name?: string | null
           name?: string
           partner_id?: string | null
           review_frequency_days?: number | null
           review_mode?: string | null
           sector?: string | null
+          tax_id?: string | null
+          trade_name?: string | null
           trial_ends_at?: string | null
           trial_exports_used?: number | null
           trial_started_at?: string | null
           updated_at?: string
           vertical_template?: string | null
           warning_before_days?: number | null
+          website?: string | null
         }
         Relationships: [
           {
@@ -674,7 +716,10 @@ export type Database = {
           created_at: string
           display_name: string | null
           id: string
+          job_title: string | null
+          locale: string | null
           organization_id: string | null
+          timezone: string | null
           updated_at: string
           user_id: string
         }
@@ -683,7 +728,10 @@ export type Database = {
           created_at?: string
           display_name?: string | null
           id?: string
+          job_title?: string | null
+          locale?: string | null
           organization_id?: string | null
+          timezone?: string | null
           updated_at?: string
           user_id: string
         }
@@ -692,7 +740,10 @@ export type Database = {
           created_at?: string
           display_name?: string | null
           id?: string
+          job_title?: string | null
+          locale?: string | null
           organization_id?: string | null
+          timezone?: string | null
           updated_at?: string
           user_id?: string
         }
@@ -714,6 +765,7 @@ export type Database = {
           file_url: string | null
           format: string | null
           id: string
+          name: string | null
           organization_id: string
           status: string | null
         }
@@ -724,6 +776,7 @@ export type Database = {
           file_url?: string | null
           format?: string | null
           id?: string
+          name?: string | null
           organization_id: string
           status?: string | null
         }
@@ -734,6 +787,7 @@ export type Database = {
           file_url?: string | null
           format?: string | null
           id?: string
+          name?: string | null
           organization_id?: string
           status?: string | null
         }
@@ -829,6 +883,7 @@ export type Database = {
           probability: number | null
           review_note: string | null
           reviewed_by: string | null
+          score: number | null
           status: Database["public"]["Enums"]["risk_status"] | null
           updated_at: string
         }
@@ -849,6 +904,7 @@ export type Database = {
           probability?: number | null
           review_note?: string | null
           reviewed_by?: string | null
+          score?: number | null
           status?: Database["public"]["Enums"]["risk_status"] | null
           updated_at?: string
         }
@@ -869,6 +925,7 @@ export type Database = {
           probability?: number | null
           review_note?: string | null
           reviewed_by?: string | null
+          score?: number | null
           status?: Database["public"]["Enums"]["risk_status"] | null
           updated_at?: string
         }
@@ -934,6 +991,7 @@ export type Database = {
           current_period_end: string | null
           current_period_start: string | null
           id: string
+          notes_internal: string | null
           plan_id: string | null
           status: string | null
           stripe_customer_id: string | null
@@ -948,6 +1006,7 @@ export type Database = {
           current_period_end?: string | null
           current_period_start?: string | null
           id?: string
+          notes_internal?: string | null
           plan_id?: string | null
           status?: string | null
           stripe_customer_id?: string | null
@@ -962,6 +1021,7 @@ export type Database = {
           current_period_end?: string | null
           current_period_start?: string | null
           id?: string
+          notes_internal?: string | null
           plan_id?: string | null
           status?: string | null
           stripe_customer_id?: string | null
