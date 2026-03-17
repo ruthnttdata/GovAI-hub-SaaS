@@ -23,7 +23,7 @@ export function OperationalControl() {
   const { data: evidences = [] } = useEvidences();
   const kpi = useReadinessKPI();
 
-  const pendingSystems = useCases.filter((u) => u.status === "pending" || u.status === "in_review");
+  const pendingSystems = useCases.filter((u) => u.status === "pending" || u.status === "under_review");
   const dueRisks = risks.filter((r) => {
     if (!r.next_review_at) return r.status === "open" && (r.score ?? 0) >= 9;
     return new Date(r.next_review_at).getTime() <= Date.now() + 14 * 86400000;

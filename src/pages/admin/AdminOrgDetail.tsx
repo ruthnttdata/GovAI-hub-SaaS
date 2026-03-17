@@ -187,7 +187,7 @@ export default function AdminOrgDetail() {
                     <Row label="Tier" value={(sub as any).plans?.tier || "—"} />
                     <Row label="Status" value={sub.status} />
                     <Row label="Trial ends" value={sub.trial_ends_at ? format(new Date(sub.trial_ends_at), "dd/MM/yyyy") : "—"} />
-                    <Row label="Period" value={sub.period_start && sub.period_end ? `${format(new Date(sub.period_start), "dd/MM/yyyy")} → ${format(new Date(sub.period_end), "dd/MM/yyyy")}` : "—"} />
+                    <Row label="Period" value={sub.current_period_start && sub.current_period_end ? `${format(new Date(sub.current_period_start), "dd/MM/yyyy")} → ${format(new Date(sub.current_period_end), "dd/MM/yyyy")}` : "—"} />
                     <Row label="Notes" value={sub.notes_internal} />
                   </>
                 ) : <p className="text-muted-foreground">No subscription</p>}

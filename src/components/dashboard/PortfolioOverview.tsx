@@ -11,7 +11,7 @@ export function PortfolioOverview() {
 
   const total = useCases.length;
   const critical = useCases.filter((u) => u.criticality === "high" || u.criticality === "critical");
-  const inReview = useCases.filter((u) => u.status === "in_review" || u.status === "pending");
+  const inReview = useCases.filter((u) => u.status === "under_review" || u.status === "pending");
   const newThisQuarter = useCases.filter((u) => new Date(u.created_at).getTime() >= quarterAgo);
   const noOwner = useCases.filter((u) => !u.owner_name);
 
